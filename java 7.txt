@@ -1,0 +1,160 @@
+1)Method
+package org.xsport;
+public class Methods {
+
+    // Method to calculate the area of a rectangle
+    public static double calculateArea(double length, double width) {
+        return length * width;
+    }
+
+    // Method to find the maximum value in an array of integers
+    public static int findMax(int[] array) {
+        int max = array[0];
+        for (int num : array) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
+    }
+
+    // Method to check if a number is even
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    // Method to calculate the average of an int and a double
+    public static double calculateAverage(int num1, double num2) {
+        return (num1 + num2) / 2;
+    }
+}
+
+2)Package
+
+
+
+a)package org.xsport;
+public class Rectangle {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double calculateArea() {
+        return length * width;
+    }
+
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+b)
+package org.xsport;
+public class Circle {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    public double calculateCircumference() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+3)Package Utilization
+
+package org.xsport;
+
+public class GeometryMain {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(5.0, 10.0);
+        Circle circle = new Circle(7.0);
+
+        System.out.println("Rectangle Area: " + rectangle.calculateArea());
+        System.out.println("Rectangle Perimeter: " + rectangle.calculatePerimeter());
+        System.out.println("Circle Area: " + circle.calculateArea());
+        System.out.println("Circle Circumference: " + circle.calculateCircumference());
+    }
+}
+
+4)Exception Handling
+
+import java.util.Scanner;
+package org.xsport;
+
+public class ExceptionHandling {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.print("Enter the first number: ");
+            int num1 = scanner.nextInt();
+            System.out.print("Enter the second number: ");
+            int num2 = scanner.nextInt();
+
+            if (num2 == 0) {
+                throw new ArithmeticException("Division by zero is not allowed.");
+            }
+
+            int result = num1 / num2;
+            System.out.println("Division result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+
+        scanner.close();
+    }
+
+    public static double calculateSquareRoot(int num) {
+        if (num < 0) {
+            throw new IllegalArgumentException("Cannot calculate square root of a negative number.");
+        }
+        return Math.sqrt(num);
+    }
+
+    public static void main(String[] args) {
+        int[] numbers = { 10, 5, 0, 20 };
+        int divisor = 2;
+
+        for (int number : numbers) {
+            try {
+                double result = number / divisor;
+                System.out.println("Result: " + result);
+            } catch (ArithmeticException e) {
+                System.out.println("Error: " + e.getMessage());
+            } finally {
+                System.out.println("Currently processing: " + number);
+                if (number % 2 == 0) {
+                    System.out.println("Number is even.");
+                } else {
+                    System.out.println("Number is odd.");
+                }
+            }
+        }
+    }
+}
+
+
+
+
+o/p:
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=61742:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.ExceptionHandling
+Enter the first number: 1000
+Enter the second number: 500
+Division result: 2
+Finally block executed.
+
+Process finished with exit code 0
+
+
+

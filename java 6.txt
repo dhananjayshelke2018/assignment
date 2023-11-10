@@ -1,0 +1,279 @@
+1)
+package org.xsport;
+
+public class ItemPurchase {
+    public static void main(String[] args) {
+        // Given quantity of items and price per item
+        int suger_in_kg = 10;
+        double price = 35.5;
+
+        // Calculate the total cost
+        double totalCost = calculateTotalCost(suger_in_kg,price);
+
+        // Print the total cost
+        System.out.println("Total cost of purchasing " + suger_in_kg + " items at " + price + " each is: " + totalCost);
+    }
+
+    // Method to calculate the total cost
+    public static double calculateTotalCost(int suger_in_kg , double price) {
+        // Local variable to store the total cost
+        double totalCost = suger_in_kg * price;
+        return totalCost;
+    }
+}
+
+o/p:"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=55567:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.ItemPurchase
+Total cost of purchasing 10 items at 35.5 each is: 355.0
+
+Process finished with exit code 0
+
+
+2)package org.xsport;
+
+public class BankAccount {
+    private int accountNumber;
+    private String accountHolderName;
+    private double balance;
+
+    // Constructor to initialize the account details
+    public BankAccount(int accountNumber, String accountHolderName, double balance) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    // Method to deposit money into the account
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Successfully deposited: " + amount);
+        } else {
+            System.out.println("Invalid amount for deposit");
+        }
+    }
+
+    // Method to withdraw money from the account
+    public void withdraw(double amount) {
+        if (amount > 0 && balance >= amount) {
+            balance -= amount;
+            System.out.println("Successfully withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient funds or invalid amount for withdrawal");
+        }
+    }
+
+    // Method to display account details
+    public void displayAccountDetails() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Balance: " + balance);
+    }
+
+    public static void main(String[] args) {
+        // Example usage of the BankAccount class
+        BankAccount account = new BankAccount(123456, "Dhanu", 1000.0);
+        account.displayAccountDetails();
+
+        account.deposit(500.0);
+        account.displayAccountDetails();
+
+        account.withdraw(200.0);
+        account.displayAccountDetails();
+
+        account.withdraw(1500.0); // Trying to withdraw more than the balance
+        account.displayAccountDetails();
+    }
+}
+
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=55617:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.BankAccount
+Account Number: 123456
+Account Holder Name: Dhanu
+Balance: 1000.0
+Successfully deposited: 500.0
+Account Number: 123456
+Account Holder Name: Dhanu
+Balance: 1500.0
+Successfully withdrawn: 200.0
+Account Number: 123456
+Account Holder Name: Dhanu
+Balance: 1300.0
+Insufficient funds or invalid amount for withdrawal
+Account Number: 123456
+Account Holder Name: Dhanu
+Balance: 1300.0
+
+Process finished with exit code 0
+
+
+3)
+package org.xsport;
+
+public class  Circumfurence {
+    public static double Pi = 3.14159;
+
+    public static double calculateCircumference(double radius) {
+        return 2 * Pi * radius;
+    }
+
+    public static void main(String[] args) {
+        double radius = 5.0;
+        double circumference = calculateCircumference(radius);
+        System.out.println("Circumference of the circle with radius " + radius + " is: " + circumference);
+    }
+}
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=55647:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.Circumfurence
+Circumference of the circle with radius 5.0 is: 31.4159
+
+Process finished with exit code 0
+
+4)
+package org.xsport;
+
+public class Person {
+    private String name;
+    private int age;
+
+    // Constructor to initialize name and age
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display person details using 'this'
+    public void displayDetails() {
+        System.out.println("Name: " + this.name);
+        System.out.println("Age: " + this.age);
+    }
+
+    public static void main(String[] args) {
+        // Creating a Person object and displaying its details
+        Person person1 = new Person("Ram", 30);
+        System.out.println("Details of person1:");
+        person1.displayDetails();
+
+        System.out.println();
+
+        Person person2 = new Person("Sham", 25);
+        System.out.println("Details of person2:");
+        person2.displayDetails();
+    }
+
+}
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=55832:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.Person
+Details of person1:
+Name: Ram
+Age: 30
+
+Details of person2:
+Name: Sham
+Age: 25
+
+Process finished with exit code 0
+
+
+5)
+
+package org.xsport;
+
+public class Circle {
+    public final double PI = 3.14159;
+
+    public double calculateArea(double radius) {
+        return PI * radius * radius;
+    }
+
+    public static void main(String[] args) {
+        Circle circle = new Circle();
+        double radius = 5.0;
+        double area = circle.calculateArea(radius);
+        System.out.println("Area of the circle with radius " + radius + " is: " + area);
+    }
+}
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=55864:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.Circle
+Area of the circle with radius 5.0 is: 78.53975
+
+Process finished with exit code 0
+
+6)
+package org.xsport;
+
+// Parent class
+class Vehicle {
+    private int speed;
+    private int year;
+
+    // Constructor to initialize speed and year
+    public Vehicle(int speed, int year) {
+        this.speed = speed;
+        this.year = year;
+    }
+
+    //  display vehicle details
+    public void display() {
+        System.out.println("Speed: " + speed + " mph");
+        System.out.println("Year: " + year);
+    }
+}
+
+// Child class extending Vehicle
+class Car extends Vehicle {
+    private String model;
+
+    
+    public Car(int speed, int year, String model) {
+        super(speed, year); // calling parent class constructor
+        this.model = model;
+    }
+
+    // Override display method to include the car's model
+    @Override
+    public void display() {
+        super.display(); // calling parent class display method
+        System.out.println("Model: " + model);
+    }
+}
+
+
+public class VehicleTest {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle(60, 2020);
+        System.out.println("Details of Vehicle:");
+        vehicle.display();
+
+        System.out.println();
+
+        Car car = new Car(70, 2018, "Toyota");
+        System.out.println("Details of Car:");
+        car.display();
+    }
+}
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=55878:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar org.xsport.VehicleTest
+Details of Vehicle:
+Speed: 60 mph
+Year: 2020
+
+Details of Car:
+Speed: 70 mph
+Year: 2018
+Model: Toyota
+
+Process finished with exit code 0
+
+
+
+

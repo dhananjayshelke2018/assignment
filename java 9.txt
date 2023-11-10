@@ -1,0 +1,84 @@
+1)
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class SwapFirstTwoElements {
+    public static void main(String[] args) {
+        ArrayList<String> animals = new ArrayList<>();
+        animals.add("cat");
+        animals.add("dog");
+        animals.add("parrot");
+
+        System.out.println("Before swapping: " + animals);
+
+        swapFirstTwoElements(animals);
+
+        System.out.println("After swapping: " + animals);
+    }
+
+    public static void swapFirstTwoElements(ArrayList<String> list) {
+        if (list.size() >= 2) {
+            Collections.swap(list, 0, 1);
+        } else {
+            System.out.println("Array list has less than two elements. Cannot perform the swap.");
+        }
+    }
+}
+
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=64922:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar SwapFirstTwoElements
+Before swapping: [cat, dog, parrot]
+After swapping: [dog, cat, parrot]
+
+Process finished with exit code 0
+
+
+2)
+
+import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
+
+public class fileReader {
+    public static void main (String[]args)
+    {
+        File fi=new File("C:\\Users\\Trishaan\\IdeaProjects\\TestNG\\src\\main\\java\\fileread.txt");
+        System.out.println(fi.canRead());
+        System.out.println(fi.setReadable(true));
+        System.out.println(fi.length());
+        try {
+            System.out.println("inside try");
+            Scanner s = new Scanner (fi);
+            System.out.println("after try");
+            while(s.hasNextLine())
+            {
+                System.out.println("inside whie");
+                String data = s.nextLine();
+                System.out.print(data);
+            }
+            s.close();
+
+        }
+
+
+        catch(IOException e){}
+
+    }
+}
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=50249:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar fileReader
+true
+true
+49
+inside try
+after try
+inside whie
+hello inside whie
+my name is dhananjayinside whie
+i am from sangamner
+Process finished with exit code 0

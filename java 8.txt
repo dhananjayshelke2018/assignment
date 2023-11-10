@@ -1,0 +1,176 @@
+1)
+
+
+class Contact {
+    private String name;
+    private String phoneNumber;
+
+    public Contact(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+}
+
+class Phonebook {
+    private ArrayList<Contact> contacts;
+
+    public Phonebook() {
+        contacts = new ArrayList<>();
+    }
+
+    public boolean isContactPresent(String name) {
+        for (Contact contact : contacts) {
+            if (contact.getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addContact(Contact contact) {
+        contacts.add(contact);
+        System.out.println("Contact added: " + contact.getName());
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        Phonebook phonebook = new Phonebook();
+
+        Contact contact1 = new Contact("vishal", "1234567890");
+        Contact contact2 = new Contact("dhananjay", "9876543210");
+
+        phonebook.addContact(contact1);
+        phonebook.addContact(contact2);
+
+        System.out.println("Is vishal in the phonebook? " + phonebook.isContactPresent("vishal"));
+        System.out.println("Is dhananjay in the phonebook? " + phonebook.isContactPresent("dhananjay"));
+    }
+}
+
+o/p:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=64662:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar Main1
+Contact added: vishal
+Contact added: dhananjay
+Is vishal in the phonebook? true
+Is dhananjay in the phonebook? true
+
+Process finished with exit code 0
+
+
+2)import java.util.ArrayList;
+
+class Customer {
+    public String customerName;
+    private double bankBalance;
+
+    public Customer(String customerName, double initialBalance) {
+        this.customerName = customerName;
+        this.bankBalance = initialBalance;
+    }
+
+    public double getBankBalance() {
+        return bankBalance;
+    }
+
+    public void doTransaction(double amount) {
+        if (amount < 0 && (bankBalance + amount) < 0) {
+            System.out.println("Error: Insufficient balance for withdrawal!");
+        } else {
+            bankBalance += amount;
+            if (amount < 0) {
+                System.out.println("Withdrawal of " + Math.abs(amount) + " processed.");
+            } else {
+                System.out.println("Deposit of " + amount + " processed.");
+            }
+        }
+    }
+}
+
+class Branch {
+    private ArrayList<Customer> customers;
+    public String branchName;
+
+    public Branch(String branchName) {
+        this.branchName = branchName;
+        customers = new ArrayList<>();
+    }
+
+    public void addCustomer(Customer customer) {
+        if (customer.getBankBalance() >= 1000) {
+            customers.add(customer);
+            System.out.println("Customer added: " + customer.customerName);
+        } else {
+            System.out.println("Error: Initial deposit should be at least 1000.");
+        }
+    }
+
+    public boolean customerExists(String customerName) {
+        for (Customer customer : customers) {
+            if (customer.customerName.equals(customerName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+class Bank {
+    private ArrayList<Branch> branches;
+    private String bankName;
+
+    public Bank(String bankName) {
+        this.bankName = bankName;
+        branches = new ArrayList<>();
+    }
+
+    public void addBranch(Branch branch) {
+        branches.add(branch);
+        System.out.println("Branch added: " + branch.branchName);
+    }
+}
+
+public class Main12 {
+    public static void main(String[] args) {
+        Bank bank = new Bank("SBI");
+
+        Branch branch = new Branch("SBI-Hinjewadi");
+        Customer vishal = new Customer("Vishal", 1000);
+        branch.addCustomer(vishal);
+
+        bank.addBranch(branch);
+
+        if (branch.customerExists("Vishal")) {
+            System.out.println("Welcome, Vishal!");
+            vishal.doTransaction(-90);
+        }
+
+        // Example for a new customer with initial deposit less than 1000
+        Customer newCustomer = new Customer("sham", 500);
+        branch.addCustomer(newCustomer);
+    }
+}
+
+o/P:
+
+"C:\Program Files\Java\jdk-11\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\lib\idea_rt.jar=64671:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\Trishaan\IdeaProjects\TestNG\target\classes;C:\Users\Trishaan\.m2\repository\com\opencsv\opencsv\4.1\opencsv-4.1.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-lang3\3.6\commons-lang3-3.6.jar;C:\Users\Trishaan\.m2\repository\org\apache\commons\commons-text\1.1\commons-text-1.1.jar;C:\Users\Trishaan\.m2\repository\commons-beanutils\commons-beanutils\1.9.3\commons-beanutils-1.9.3.jar;C:\Users\Trishaan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Trishaan\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar Main12
+Customer added: Vishal
+Branch added: SBI-Hinjewadi
+Welcome, Vishal!
+Withdrawal of 90.0 processed.
+Error: Initial deposit should be at least 1000.
+
+Process finished with exit code 0
+
+
+
+
